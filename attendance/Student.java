@@ -11,22 +11,47 @@ public class Student implements Attendee{
 		present = false;
 	}
 	
-	boolean isPresent() {
+	public boolean isPresent() {
 		return present;
 	}
-	void setPresent(boolean present) {
+	public void setPresent(boolean present) {
 		this.present = present;
 	}
-	String getFirstName() {
+	public String getFirstName() {
 		return firstName;
 	}
-	String getlastName() {
+	public String getlastName() {
 		return lastName;
 	}
-	boolean mathces(String first, String last) {
-		return ((first.compareTo(firstName))==0 && (last.compareTo(lastName)==0);
+	public boolean mathces(String first, String last) {
+		return ((first.toLowerCase().equals(firstName)) && (last.toLowerCase().equals(lastName)));
 	}
-	boolean matches(String last){
+	public boolean matches(String last){
 		return (last.compareTo(lastName)==0);
+	}
+	public String getReportString() {
+		String output = lastName;
+		if(lastName.length() > 20) {
+			String cutOffLastName = lastName.substring(0,17) + "...";
+			output = cutOffLastName;
+		}
+		while(output.length() < 20) {
+			output += " ";
+		}
+		if(firstName.length() > 20) {
+			String cutOffFirstName = firstName.substring(0,17) + "...";
+			output += cutOffFirstName;
+		}else {
+			output += firstName;
+		}
+		while(output.length() < 40) {
+			output += " ";
+		}
+			if(isHere) {
+				output += "PRESENT";
+				return output;
+			}
+		output += "ABSENT";	
+		return output;
 	}
 }
