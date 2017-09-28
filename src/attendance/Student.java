@@ -4,30 +4,30 @@ public class Student implements Attendee{
 	
 	private String firstName;
 	private String lastName;
-	private boolean present;
-	public Student{
-		firstName = Samuel;
-		lastName = Khong;
-		present = false;
+	private boolean isHere;
+	public Student(String first, String last){
+		firstName = first;
+		lastName = last;
+		isHere = false;
 	}
 	
 	public boolean isPresent() {
-		return present;
+		return isHere;
 	}
 	public void setPresent(boolean present) {
-		this.present = present;
+		this.isHere = isHere;
 	}
 	public String getFirstName() {
 		return firstName;
 	}
-	public String getlastName() {
+	public String getLastName() {
 		return lastName;
 	}
 	public boolean mathces(String first, String last) {
-		return ((first.toLowerCase().equals(firstName)) && (last.toLowerCase().equals(lastName)));
+		return ((first.toLowerCase().equals(firstName.toLowerCase())) && (last.toLowerCase().equals(lastName.toLowerCase())));
 	}
 	public boolean matches(String last){
-		return (last.compareTo(lastName)==0);
+		return (last.toLowerCase().equals(lastName.toLowerCase()));
 	}
 	public String getReportString() {
 		String output = lastName;
@@ -51,7 +51,7 @@ public class Student implements Attendee{
 				output += "PRESENT";
 				return output;
 			}
-		output += "ABSENT";	
+		output += "ABSENT \n";	
 		return output;
 	}
 }
