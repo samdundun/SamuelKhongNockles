@@ -28,16 +28,12 @@ public class ArraysMain {
 	}
 	private void getConsecDice(int[] intRay2) {
 		int counter = 1;
-		int largestCounter = 0;
 		while(longestConsecutiveSequence(intRay) != 11) {
-			if(longestConsecutiveSequence(intRay) > largestCounter) {
-				System.out.println("This is the attempt #" + counter);
-				System.out.println("the longest consecutive dice roll was " +  longestConsecutiveSequence(intRay));
-				System.out.println("At position " + posLongestConsecutiveSequence(intRay));
-				pIntRays(longestConsecSeqAndPos(intRay));
-				largestCounter =  longestConsecutiveSequence(intRay);
-				populate(intRay);
-			}
+			System.out.println("This is the attempt #" + counter);
+			System.out.println("the longest consecutive dice roll was " +  longestConsecutiveSequence(intRay));
+			System.out.println("At position " + posLongestConsecutiveSequence(intRay));
+			pIntRays(longestConsecSeqAndPos(intRay));
+			populate(intRay);
 			counter++;
 		}
 	}
