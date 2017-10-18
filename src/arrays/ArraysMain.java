@@ -22,7 +22,7 @@ public class ArraysMain {
 		//System.out.println(countLessThan(intRay,2));
 		//System.out.println(longestConsecutiveSequence(consecTest1));
 		//System.out.println(longestConsecutiveSequence(intRay));
-		getConsecDice(intRay);
+		//getConsecDice(intRay);
 		//pIntRays(longestConsecSeqAndPos(consecTest2));
 		
 	}
