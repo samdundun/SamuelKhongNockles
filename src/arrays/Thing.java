@@ -9,6 +9,6 @@ public class Thing {
 	}
 	
 	public String toString() {
-		return "I am just a " + description + ". An inanimate object. What did you expect?";
+		return description;
 	}
 }
