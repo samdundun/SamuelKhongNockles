@@ -7,14 +7,18 @@ public class ObjectArrays {
 	public ObjectArrays() {
 		Person[] people = new Person[10];
 		populate(people);
+		//for(Person p: people) {
+			//System.out.println(p);
+		//}
+		
 		/*for(Person p: people) {
 			p.mingle(people);
 			p.printFriends();
 			System.out.println("");
 		}*/
-		Person[] group1 = selectGroup(people, 5);
-		Person[] group2 = selectGroup(group1, 5);
-		testShuffling();
+		//Person[] group1 = selectGroup(people, 5);
+		//Person[] group2 = selectGroup(group1, 5);
+		//testShuffling();
 		
 	}
 	

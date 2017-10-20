@@ -10,8 +10,10 @@ public class Person {
 	public static final String[] LAST_MIDDLE = {"","om", "o", "an", "ola", "et", "e", "is"};
 	public static final String[] LAST_END = {"", "tan", "y", "dy", "ty","ly", "man","en","de","son","o","les", "ers", "rian","ong"};
 	
+	
 	String firstName;
 	String lastName;
+	String nickName;
 	Borough home;
 	private Hobby hobby;
 	private Person[] friends;
@@ -22,6 +24,7 @@ public class Person {
 		this.home = home;
 		this.hobby = Hobby.randomHobby();
 		friends = new Person[3];
+		this.nickName = nickName(firstName);
 	}
 	
 	public void mingle(Person[] people) {
@@ -70,8 +73,43 @@ public class Person {
 			if(f!= null ) System.out.println(f);
 		}
 	}
-	
-	public String toString() {
-		return "My name is " + firstName + " "+ lastName + " and I live in " + home + ". My hobby is " + hobby;
+	public static String nickName(String name) {
+		String output = "";
+		boolean pastfirstVowel = false;
+		for(int i = 0; i < name.length(); i++) {
+			String currentLetter =  name.substring(i,i+1);
+			if(isVowel(currentLetter)) {
+				if(pastfirstVowel) {
+					break;
+				}
+				else {
+					output+= currentLetter;
+					pastfirstVowel = true;
+				}
+			}
+			else {
+				output+= currentLetter;
+			}
+		}
+		return output;
 	}
+	
+	private static boolean isVowel(String a) {
+		return ("aeiouAEIOU".indexOf(a) != -1);
+	}
+
+	public String toString() {
+		return "My name is " + firstName + " "+ lastName + " and I live in " + home + ".\nMy hobby is " + hobby + " and my nickname is " + nickName + ".\n";
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+		this.nickName = nickName(firstName);
+	}
+
+	
 }
