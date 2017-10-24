@@ -118,6 +118,7 @@ public class CaveRoom {
 			CaveExplorer.currentRoom.leave();
 			CaveExplorer.currentRoom = borderingRooms [direction];
 			CaveExplorer.currentRoom.enter();
+			CaveExplorer.inventory.updateMap();
 		}
 	}
 
