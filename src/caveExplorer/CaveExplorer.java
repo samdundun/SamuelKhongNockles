@@ -32,7 +32,7 @@ public class CaveExplorer {
 	
 	public static void print(String s) {
 		//NOTE: LATER YOU CAN REPLACE WITHT HE MORE SOPHISTICATED "MULTILINEPRINT"
-		System.out.println();
+		System.out.println(s);
 	}
 
 }
