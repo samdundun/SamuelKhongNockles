@@ -79,3 +79,4 @@ public class NPCRoom extends CaveRoom {
 		}
 	}
 }
+
