@@ -74,21 +74,26 @@ public class NPC {
 	public void act() {
 		if(active) {
 			int[] move = calculateMovement();
-			int newRow = currentRow + mov[0];
-			int newCol = currentCol + move[1];
+			int newRow =  move[0];
+			int newCol =  move[1];
 			setPosition(newRow,newCol);
 		}
 		
 	}
 	public int[] calculateMovement() {
 		int[] moves = new int[2];
-		int[][] possibleMoves = {{-1,0},{0,1},{1,0},{0,-1}};
-		int rand = (int)(Math.random() * 4);
+		int[][] possibleMoves = {{-1,0},{0,1},{1,0},{0,-1}, {0,0}};
+		int rand = (int)(Math.random() *possibleMoves.length-1);
 		
 		moves[0] = possibleMoves[rand][0]+currentRow;
 		moves[1] = possibleMoves[rand][1]+currentCol;
 		
-		
+		while(currentRoom.getDoor(rand)== null || !(CaveExplorer.caves[moves[0]][moves[1]] instanceof NPCRoom) ) {
+			rand = (int)(Math.random()*possibleMoves.length-1);
+			moves[0] = possibleMoves[rand][0]+currentRow;
+			moves[1] = possibleMoves[rand][1]+currentCol;
+		}
+		return moves;
 	}
 	
 	

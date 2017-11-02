@@ -3,10 +3,12 @@ package caveExplorer;
 public class NPCRoom extends CaveRoom {
 
 	private NPC presentNPC;
+	private Enemy presentEnemy;
 	
 	public NPCRoom(String description) {
 		super(description);
 		presentNPC = null;
+		presentEnemy = null;
 	}
 
 	/**
@@ -48,7 +50,10 @@ public class NPCRoom extends CaveRoom {
 	
 	public void performAction(int direction) {
 		if(direction == 4) {
-			if(containsNPC() && presentNPC.isActive()) {
+			if(containsEnemy() && presentEnemy.isActive()) {
+				presentEnemy.battle();
+			}
+			else if(containsNPC() && presentNPC.isActive()) {
 				presentNPC.interact();
 			}
 			else {
@@ -61,8 +66,22 @@ public class NPCRoom extends CaveRoom {
 		
 	}
 	
+	private boolean containsEnemy() {
+		return presentEnemy != null;
+	}
+	public void enterEnemy(Enemy m) {
+		presentEnemy = m;
+	}
+	
+	public void leaveEnemy() {
+		presentEnemy = null;
+	}
+
 	public String getContents() {
-		if(containsNPC()&& presentNPC.isActive()) {
+		if(containsEnemy() && presentEnemy.isActive()) {
+			return "E";
+		}
+		else if(containsNPC()&& presentNPC.isActive()) {
 			return "M";
 		}
 		else {
@@ -71,11 +90,18 @@ public class NPCRoom extends CaveRoom {
 	}
 	
 	public String getDescription() {
+		if(containsEnemy() && !presentEnemy.isActive()) {
+			return super.getDescription() + "\n"+presentNPC.getInactiveDescription();
+		}
 		if(containsNPC() && !presentNPC.isActive()) {
 			return super.getDescription() + "\n"+presentNPC.getInactiveDescription();
 		}
 		else {
-			return super.getDescription() + "\n"+presentNPC.getActiveDescription();
+			String npcDesc = "";
+			if(presentNPC!= null) {
+				npcDesc = presentNPC.getActiveDescription();
+			}
+			return super.getDescription() + "\n"+npcDesc;
 		}
 	}
 }
