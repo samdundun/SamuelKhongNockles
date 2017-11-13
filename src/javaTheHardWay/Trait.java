@@ -44,5 +44,5 @@ public class Trait {
 	
 	//1. If they are instances and if they appear in the same pair in the traits array
 	//2. If it appears earlier in the traits array it is dominant
-	//3. One is for creating the object while the other one is set automatically to them.
+	//3. One is for creating a random one while the other is set manually.
 }
