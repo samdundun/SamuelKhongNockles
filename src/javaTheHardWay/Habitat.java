@@ -51,13 +51,15 @@ public class Habitat extends Environment {
 		animals[i] = null;
 	}
 
+	//This is repeated and is called an overloaded method
 	public void removeAnimal(Animal a) {
 		for(int i = 0; i < animals.length; i++) {
-			if(animals[i] == a) {
-				animals[i] = null;
-			}
+			if(animals[i] == a)animals[i] = null;
 		}
 	}
+	
+	
+
 }
 
 //1. livingCapacity is the length of the array and if addAnimals is called while it is reached then it does not put the animal in
