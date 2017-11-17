@@ -13,7 +13,7 @@ public class ReproductionAnimal extends RoamingAnimal {
 			animal2 = new ReproductionAnimal(h);
 			youngAnimal = animal1.getOffSpring(animal2);
 		}
-		System.out.println(animal1+ " and a\n " + animal2);
+		System.out.println(animal1+ " and a\n" + animal2);
 		System.out.println("had a baby and it was a \n" + youngAnimal);
 	}
 

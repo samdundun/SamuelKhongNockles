@@ -38,7 +38,7 @@ public class Animal {
 	}
 	
 	public String getDescription() {
-		return this.getDescription();
+		return this.description;
 	}
 
 	private void chooseTraits() {
