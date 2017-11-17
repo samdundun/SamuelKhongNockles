@@ -37,7 +37,11 @@ public class ReproductionAnimal extends RoamingAnimal {
 				Trait.getDominantTrait(getTrait2(), mate.getTrait2()));
 	}
 	
+	
+	
 	public final void mate() {
+		
+		
 		int i = 0;
 		while(i < habitat.getAnimals().length) {
 			Animal target = habitat.getAnimals()[i];
