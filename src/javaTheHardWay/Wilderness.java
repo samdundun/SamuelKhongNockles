@@ -32,7 +32,7 @@ public class Wilderness extends Habitat {
 					preyCount++;
 				}
 			}
-			String s = "\nROUND " + (i+1) + "\n Predators : " + predatorCount + ", PREY: " + preyCount + "\n" + animalReport();
+			String s = "\nROUND " + (i+1) + "\nPredators : " + predatorCount + ", PREY: " + preyCount + "\n" + animalReport();
 			System.out.print(s);
 			for(Animal a: getAnimals()) {
 				if(a != null)a.act();
