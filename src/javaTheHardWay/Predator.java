@@ -1,6 +1,6 @@
 package javaTheHardWay;
 
-public class Predator extends RoamingAnimal{
+public class Predator extends ReproductionAnimal{
 
 	public Predator(Habitat matingArea) {
 		super(matingArea);
