@@ -6,8 +6,8 @@ public class Prey extends ReproductionAnimal{
 	
 	public static void main(String[] args) {
 		Wilderness wilderness = new Wilderness("A wooded area",40);
-		int numPredators = 10;
-		int numPrey = 25;
+		int numPredators = 25;
+		int numPrey = 15;
 		for(int i = 0; i < numPredators; i++) {
 			Predator predator = new Predator(wilderness, "wolf", new Trait(), new Trait());
 			wilderness.addAnimal(predator);
