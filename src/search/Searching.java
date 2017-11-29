@@ -8,13 +8,13 @@ public class Searching {
 	Scanner in;
 	int[] numbers;
 	public static final int HANDICAP= 10;
-	
+
 	public static void main(String[] args){
 		System.out.println("Loading text ints...");
 		Searching s = new Searching(); 
-		
+
 	}
-	
+
 	public Searching() {
 		in = new Scanner(System.in);
 		String s= new StringFromFileLoader("Data/ints.txt").getFileContent();
@@ -39,7 +39,7 @@ public class Searching {
 		}
 		System.out.println("Get ready to race the computer. \n"
 				+ "It's okay, the computer has been set to take "+HANDICAP+" ms for every iteration in its search algorithm.\n"
-						+ "Open the file called \"ints.txt\". You will find it in the Data folder of this repository.\nTry to find the number "+target+" (by scrolling and reading)."
+				+ "Open the file called \"ints.txt\". You will find it in the Data folder of this repository.\nTry to find the number "+target+" (by scrolling and reading)."
 				+ "\n    Press 'enter' to begin.");
 		in.nextLine();
 
@@ -50,7 +50,7 @@ public class Searching {
 		}else{
 			System.out.println("The number "+target+" was not found in the file.");
 		}
-		
+
 	}
 
 
@@ -63,30 +63,26 @@ public class Searching {
 		}
 		return -1;
 	}
-	
+
 	/**
 	 * The delay method is designed to slow down your algorithm. Without a delay,
 	 * the search algorithm will likely run so fast it won't be noticeable.
 	 * If you are running this on a slow machine, you can decrease the HANDICAP
 	 * field to decrease the length of the delay
 	 */
-	
-	public static int binarySearch(int[] searchThis, int startIndex, int endIndex, int target) {
-		if(searchThis[Math.round((startIndex+endIndex)/2)] != target && searchThis.length == 1) {
-			return -1;
+
+	public int binarySearch(int[] searchThis, int startIndex, int endIndex, int target){
+		delay();
+		if(startIndex > endIndex) return -1;
+		else{
+			int mid = (startIndex+endIndex)/2;
+			if (searchThis[mid]==target) return mid;
+			else if (searchThis[mid] > target){
+				return binarySearch(searchThis, startIndex, mid-1, target);
+			}
+			else return binarySearch(searchThis, mid+1,endIndex, target);
 		}
-		if(searchThis[(Math.round(startIndex+endIndex)/2)] == target) {
-			return (startIndex+endIndex/2);
-		}
-		else if(searchThis[(startIndex+endIndex)/2] < target) {
-			return binarySearch(searchThis, startIndex,  (startIndex+endIndex)/2, target);
-		}
-		else if(searchThis[(startIndex+endIndex)/2] > target) {
-			return binarySearch(searchThis, (startIndex+endIndex)/2, endIndex, target);
-		}
-		return -1;
 	}
-	
 	private void delay() {
 		try {
 			Thread.sleep(HANDICAP);
@@ -95,7 +91,7 @@ public class Searching {
 		}
 	}
 
-	
-	
-	
+
+
+
 }
