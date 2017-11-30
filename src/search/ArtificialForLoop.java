@@ -3,7 +3,7 @@ package search;
 public class ArtificialForLoop {
 
 	public static void main(String[] args) {
-		forLoop(10, new Action() {
+		forLoop(0, new Action() {
 			
 			int count = 1;
 			
